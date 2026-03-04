@@ -6,12 +6,7 @@ export const products: Product[] = [
     name: "Seda Raw Classic King Size",
     price: 3.5,
     category: "Sedas",
-    images: [
-      "https://picsum.photos/seed/seda-raw-1/600/600",
-      "https://picsum.photos/seed/seda-raw-2/600/600",
-      "https://picsum.photos/seed/seda-raw-3/600/600",
-      "https://picsum.photos/seed/seda-raw-4/600/600",
-    ],
+    images: ["./imagens/Seda_Raw_classic.webp"],
     aiHint: "rolling paper",
     description:
       "A seda Raw Classic é feita de fibras naturais não refinadas, com uma coloração marrom clara e translúcida. A marca d'água CrissCross previne a combustão desigual.",
