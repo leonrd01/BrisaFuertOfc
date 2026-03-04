@@ -1,8 +1,15 @@
 import React from "react";
 import { notFound } from "next/navigation";
-import { products } from "@/lib/products";
+// ...existing code...
 import type { Product } from "@/lib/types";
 import ProductPageClient from "@/components/product-page-client";
+
+// Função para exportação estática das rotas dinâmicas
+import { products } from "@/lib/products";
+
+export async function generateStaticParams() {
+  return products.map((product) => ({ id: product.id }));
+}
 
 export default function ProductPage({ params }: { params: { id: string } }) {
   // `params` can be a Promise in recent Next.js versions. Use React use to
