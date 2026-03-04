@@ -1,0 +1,54 @@
+node_modules/
+
+# Build e dependências
+.next/
+.idx/
+dist/
+coverage/
+tmp/
+temp/
+
+# Arquivos temporários e de ambiente
+.modified
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Arquivos do sistema
+*.DS_Store
+Thumbs.db
+
+# Arquivos extras do Next.js
+.next/build/
+.next/cache/
+.next/server/
+.next/static/
+.next/types/
+.next/trace
+.next/transform.js
+.next/transform.js.map
+.next/app-build-manifest.json
+.next/build-manifest.json
+.next/fallback-build-manifest.json
+.next/package.json
+.next/server/app-paths-manifest.json
+.next/server/chunks/
+.next/server/interception-route-rewrite-manifest.js
+.next/server/middleware-build-manifest.js
+.next/server/middleware-manifest.json
+.next/server/next-font-manifest.js
+.next/server/next-font-manifest.json
+.next/server/pages-manifest.json
+.next/server/server-reference-manifest.js
+.next/server/server-reference-manifest.json
+
+# Arquivos do ambiente de desenvolvimento
+.idx/dev.nix
+.idx/icon.png
