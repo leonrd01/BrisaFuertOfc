@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { Menu, Search, ShoppingCart, User, X } from "lucide-react";
 import Image from "next/image";
-import logo from "@/imagens/sol-logo02.png";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
@@ -40,7 +39,7 @@ export default function SiteHeader() {
                 <SheetClose asChild>
                   <Link href="/" className="flex items-center gap-2 mb-8">
                     <Image
-                      src={logo}
+                      src="/imagens/sol-logo02.png"
                       alt="Brisa Fuert"
                       width={36}
                       height={36}
@@ -72,7 +71,7 @@ export default function SiteHeader() {
         <div className="hidden md:flex">
           <Link href="/" className="flex items-center gap-2">
             <Image
-              src={logo}
+              src="/imagens/sol-logo02.png"
               alt="Brisa Fuert"
               width={50}
               height={50}
