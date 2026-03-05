@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import Link from "next/link";
-import { Menu, Search, ShoppingCart, User, X } from "lucide-react";
+import { Menu, Search, ShoppingCart, User } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -26,8 +27,18 @@ import { Badge } from "../ui/badge";
 
 export default function SiteHeader() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-   const { cartItems } = useCart();
-   const itemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+  const [searchQuery, setSearchQuery] = useState("");
+  const router = useRouter();
+  const { cartItems } = useCart();
+  const itemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
+  const handleSearchSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const query = searchQuery.trim();
+    if (!query) return;
+    router.push(`/search?q=${encodeURIComponent(query)}`);
+    setIsSearchOpen(false);
+  };
 
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -111,13 +122,16 @@ export default function SiteHeader() {
         {/* Icons and Search */}
         <div className="flex items-center gap-2">
           <div className="hidden md:block w-64">
-            <div className="relative">
+            <form className="relative" onSubmit={handleSearchSubmit}>
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
                 placeholder="Pesquisar..."
                 className="pl-9 bg-muted/50 border-0 focus-visible:ring-primary"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                aria-label="Pesquisar produtos"
               />
-            </div>
+            </form>
           </div>
 
           <Dialog open={isSearchOpen} onOpenChange={setIsSearchOpen}>
@@ -133,10 +147,17 @@ export default function SiteHeader() {
             </DialogTrigger>
             <DialogContent className="top-20 translate-y-0 sm:top-1/2 sm:-translate-y-1/2">
               <DialogTitle className="sr-only">Pesquisar produtos</DialogTitle>
-              <div className="relative mt-4">
+              <form className="relative mt-4" onSubmit={handleSearchSubmit}>
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input placeholder="Pesquisar..." className="pl-9" />
-              </div>
+                <Input
+                  placeholder="Pesquisar..."
+                  className="pl-9"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  aria-label="Pesquisar produtos"
+                  autoFocus
+                />
+              </form>
             </DialogContent>
           </Dialog>
 

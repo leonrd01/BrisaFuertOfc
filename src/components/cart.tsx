@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useCart } from "@/hooks/use-cart";
+import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -12,6 +13,47 @@ import { Minus, Plus, Trash2 } from "lucide-react";
 export function Cart() {
   const { cartItems, removeFromCart, updateQuantity, getCartTotal, clearCart } =
     useCart();
+  const { toast } = useToast();
+
+  const handleCheckout = () => {
+    const phoneFromEnv = (
+      process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || ""
+    ).replace(/\D/g, "");
+    const phone = phoneFromEnv || "5571985263512";
+
+    if (!phone) {
+      toast({
+        title: "Configure o WhatsApp",
+        description:
+          "Defina NEXT_PUBLIC_WHATSAPP_NUMBER para enviar pedidos pelo WhatsApp.",
+      });
+      return;
+    }
+
+    const itemsText = cartItems
+      .map(
+        (item) =>
+          `- ${item.name} x${item.quantity} (R$ ${(item.price * item.quantity)
+            .toFixed(2)
+            .replace(".", ",")})`
+      )
+      .join("\n");
+
+    const total = getCartTotal().toFixed(2).replace(".", ",");
+    const message =
+      `Olá! Quero finalizar meu pedido:\n\n` +
+      `${itemsText}\n\n` +
+      `Total: R$ ${total}`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${encodedMessage}`;
+    const popup = window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+
+    // Fallback when popups are blocked (common on some mobile browsers/PWAs).
+    if (!popup) {
+      window.location.href = whatsappUrl;
+    }
+  };
 
   return (
     <>
@@ -87,7 +129,9 @@ export function Cart() {
                 <span>Total</span>
                 <span>R$ {getCartTotal().toFixed(2).replace(".", ",")}</span>
               </div>
-              <Button className="w-full">Finalizar Compra</Button>
+              <Button className="w-full" onClick={handleCheckout}>
+                Finalizar Compra
+              </Button>
               <Button
                 variant="outline"
                 className="w-full"
