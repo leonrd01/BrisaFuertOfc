@@ -6,8 +6,19 @@ import { Menu, Search, ShoppingCart, User, X } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { siteConfig } from "@/config/site";
 import { useCart } from "@/hooks/use-cart";
 import { Cart } from "@/components/cart";
@@ -35,6 +46,7 @@ export default function SiteHeader() {
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="w-[300px] bg-background">
+              <SheetTitle className="sr-only">Menu principal</SheetTitle>
               <div className="p-6">
                 <SheetClose asChild>
                   <Link href="/" className="flex items-center gap-2 mb-8">
@@ -120,6 +132,7 @@ export default function SiteHeader() {
               </Button>
             </DialogTrigger>
             <DialogContent className="top-20 translate-y-0 sm:top-1/2 sm:-translate-y-1/2">
+              <DialogTitle className="sr-only">Pesquisar produtos</DialogTitle>
               <div className="relative mt-4">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input placeholder="Pesquisar..." className="pl-9" />

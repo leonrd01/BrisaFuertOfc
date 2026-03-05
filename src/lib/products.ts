@@ -3,35 +3,33 @@ import type { Product } from "@/lib/types";
 export const products: Product[] = [
   {
     id: "seda-raw-classic",
-    name: "Seda Raw Classic King Size",
-    price: 3.5,
+    name: "Seda Zomo Alfafa",
+    price: 5,
     category: "Sedas",
-    images: ["/imagens/Seda_Raw_classic.webp"],
+    images: ["/imagens/Seda_Zomo_Alfafa.jpeg", "/imagens/Seda_Zomo02.webp"],
     aiHint: "rolling paper",
     description:
-      "A seda Raw Classic é feita de fibras naturais não refinadas, com uma coloração marrom clara e translúcida. A marca d'água CrissCross previne a combustão desigual.",
+      "A Seda Zomo Alfafa Slim é feita de alfafa 100% natural, oferecendo uma queima limpa e lenta, perfeita para quem busca uma alternativa sustentável. Sua cor verde única e composição sem aditivos garantem uma experiência pura, preservando o sabor original das ervas. Com formato slim, essa seda é ideal para uma queimadura uniforme e prolongada, elevando suas sessões com um toque ecológico. ",
     specifications: {
-      Tamanho: "King Size (110mm x 44mm)",
-      Material: "Fibras naturais não refinadas",
+      Tamanho: "King Size",
+      Material: "Alfafa",
       "Folhas por livreto": "32",
     },
-    reviews: [{ rating: 5, text: "Melhor seda que já usei!", author: "João S." }],
+    reviews: [
+      { rating: 5, text: "Melhor seda que já usei!", author: "João S." },
+    ],
   },
   {
     id: "bong-de-vidro-ice",
-    name: "Bong de Vidro com Suporte para Gelo",
-    price: 129.9,
-    category: "Bongs",
-    images: [
-      "https://picsum.photos/seed/bong-ice-1/600/600",
-      "https://picsum.photos/seed/bong-ice-2/600/600",
-      "https://picsum.photos/seed/bong-ice-3/600/600",
-    ],
+    name: "Bong de Vidro",
+    price: 25,
+    category: "Acessórios",
+    images: ["/imagens/Bong.jpeg"],
     aiHint: "glass bong",
     description:
-      "Bong de vidro borossilicato de alta resistência. Possui suporte para gelo, proporcionando uma fumaça mais resfriada e suave. Fácil de limpar e manusear.",
+      "O Micro Bong Sadhu é a escolha ideal para quem busca uma experiência pura e discreta, onde quer que esteja. Feito de Vidro Borossilicato – Material de alta pureza, resistente ao calor e durável.",
     specifications: {
-      Altura: "30cm",
+      Altura: "8,3 cm",
       Material: "Vidro Borossilicato",
       "Espessura do vidro": "5mm",
     },
@@ -40,41 +38,19 @@ export const products: Product[] = [
     ],
   },
   {
-    id: "dichavador-metal-polen",
-    name: "Dichavador de Metal com Coletor de Pólen",
-    price: 45.0,
-    category: "Dichavadores",
-    images: [
-      "https://picsum.photos/seed/grinder-1/600/600",
-      "https://picsum.photos/seed/grinder-2/600/600",
-    ],
-    aiHint: "herb grinder",
-    description:
-      "Dichavador de metal de 4 partes com tela para coleta de pólen. Dentes afiados para uma moagem perfeita e fechamento magnético para segurança.",
-    specifications: {
-      Diâmetro: "50mm",
-      Material: "Liga de Zinco",
-      Partes: "4",
-    },
-    reviews: [],
-  },
-  {
     id: "isqueiro-clipper-metal",
-    name: "Isqueiro Clipper de Metal Recarregável",
+    name: "Maçarico CHAMA WUJI",
     price: 35.9,
     category: "Isqueiros",
-    images: ["https://picsum.photos/seed/lighter-1/600/600"],
+    images: ["/imagens/Macarico_ChamaWuji.jpeg"],
     aiHint: "metal lighter",
-    description:
-      "Isqueiro da marca Clipper em versão de metal, recarregável com gás butano. Acompanha estojo de metal. Chama ajustável e pilão integrado.",
+    description: " Isqueiro Maçarico de Metal Quebra Vento",
     specifications: {
       Modelo: "Clipper Metal",
       Material: "Metal",
       Recarregável: "Sim",
     },
-    reviews: [
-      { rating: 4, text: "Bonito e funcional.", author: "Pedro A." },
-    ],
+    reviews: [{ rating: 4, text: "Bonito e funcional.", author: "Pedro A." }],
   },
   {
     id: "piteira-vidro-longa",
@@ -93,40 +69,9 @@ export const products: Product[] = [
     reviews: [],
   },
   {
-    id: "cinzeiro-silicone",
-    name: "Cinzeiro de Silicone Flexível",
-    price: 25.0,
-    category: "Cinzeiros",
-    images: ["https://picsum.photos/seed/ashtray-1/600/600"],
-    aiHint: "silicone ashtray",
-    description:
-      "Cinzeiro de silicone que não quebra. Ideal para uso interno e externo. Vários compartimentos para apoiar seu cigarro. Fácil de lavar.",
-    specifications: {
-      Material: "Silicone",
-      Diâmetro: "8.5cm",
-      Cor: "Preto",
-    },
-    reviews: [],
-  },
-  {
-    id: "kit-iniciante",
-    name: "Kit Iniciante Arcana",
-    price: 89.9,
-    category: "Kits",
-    images: ["https://picsum.photos/seed/kit-1/600/600"],
-    aiHint: "smoking kit",
-    description:
-      "O kit perfeito para quem está começando. Inclui uma seda, um dichavador básico, um isqueiro e um case para transporte.",
-    specifications: {
-      Conteúdo:
-        "1x Seda King Size, 1x Dichavador de Plástico, 1x Isqueiro, 1x Case",
-    },
-    reviews: [],
-  },
-  {
     id: "tesoura-trimmer",
-    name: "Tesoura de Poda (Trimmer)",
-    price: 29.9,
+    name: "Seda_OCB_p",
+    price: 5,
     category: "Acessórios",
     images: ["https://picsum.photos/seed/trimmer-1/600/600"],
     aiHint: "trimming scissors",
